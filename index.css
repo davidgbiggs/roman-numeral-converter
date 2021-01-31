@@ -8,11 +8,12 @@ body {
 
 #input-container {
   width: 100vw;
-  height: 80vh;
+  height: 70vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  margin: 0;
 }
 
 input {
