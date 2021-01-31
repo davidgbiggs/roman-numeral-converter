@@ -25,7 +25,6 @@ function checkPalindrome(event) {
   function isPalindrome(str) {
     // this regex is necessary because of the way the project is structured @ Free Code Camp
     const newStr = str.replace(/[^A-Za-z0-9]/g, "");
-    console.log(newStr.toLowerCase());
     return (
       newStr.toLowerCase().split("").reverse().join("") === newStr.toLowerCase()
     );
