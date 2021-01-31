@@ -2,18 +2,26 @@
 <html>
   <head>
     <link rel="stylesheet" href="./index.css" />
+    <title>Palindromes, check ya palindromes here!</title>
     <script src="./index.js" async></script>
   </head>
   <body>
     <div id="input-container">
       <h1>Palindrome Checker</h1>
       <form id="palindrome-form" onsubmit="return false">
-        <input type="text" />
-        <button type="submit">Check</button>
+        <input id="palindrome-input" type="text" autocomplete="off" />
       </form>
-      <p id="palindrome-result">
-        Enter a phrase above to see if it's a palindrome.
-      </p>
+      <p id="palindrome-result">Press tab.</p>
     </div>
+    <footer>
+      <span
+        ><small
+          >Programmed and designed by
+          <a href="https://davidgbiggs.com">David Biggs</a>. See the code
+          <a href="https://github.com/davidgbiggs/palindrome-checker">here</a
+          >.</small
+        ></span
+      >
+    </footer>
   </body>
 </html>
