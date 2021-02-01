@@ -1,40 +1,66 @@
-const form = document.querySelector("#palindrome-form");
-const input = document.querySelector("#palindrome-input");
-const palindromeResult = document.querySelector("#palindrome-result");
+const form = document.querySelector("#rn-form");
+const input = document.querySelector("#rn-input");
+const rnResult = document.querySelector("#rn-result");
 
-form.addEventListener("submit", checkPalindrome, false);
+form.addEventListener("submit", checkRn, false);
 input.addEventListener("focus", setFocusDirections, false);
-input.addEventListener("blur", setBlurDirections, false);
+// input.addEventListener("blur", setBlurDirections, false);
 
 // function executed for its side effects
-function checkPalindrome(event) {
-  const inputValue = event.srcElement[0].value;
-  palindromeResult.textContent = "Checking...";
+function checkRn(event) {
+  const inputValue = parseInt(event.srcElement[0].value, 10);
+  rnResult.textContent = "Checking...";
+  const res = convertToRoman(inputValue);
+  console.log(inputValue.length);
 
   setTimeout(() => {
-    if (inputValue.length === 0) {
-      palindromeResult.textContent = "You should probably type something.";
-    } else if (isPalindrome(inputValue)) {
-      palindromeResult.textContent = "This is a palindrome.";
+    if (!res) {
+      rnResult.textContent = "You should probably type something.";
     } else {
-      palindromeResult.textContent = "Not a palindrome!";
+      rnResult.textContent = "Conversion: " + res;
     }
   }, 200);
 
-  // pure function, determines if something is a palindrome
-  function isPalindrome(str) {
-    // this regex is necessary because of the way the project is structured @ Free Code Camp
-    const newStr = str.replace(/[^A-Za-z0-9]/g, "");
-    return (
-      newStr.toLowerCase().split("").reverse().join("") === newStr.toLowerCase()
-    );
+  // pure function, returns roman numeral version of an integer
+  function convertToRoman(num) {
+    const romArr = [];
+    const numeralMap = [
+      { numeral: "M", value: 1000 },
+      { numeral: "CM", value: 900 },
+      { numeral: "D", value: 500 },
+      { numeral: "CD", value: 400 },
+      { numeral: "C", value: 100 },
+      { numeral: "XC", value: 90 },
+      { numeral: "L", value: 50 },
+      { numeral: "XL", value: 40 },
+      { numeral: "X", value: 10 },
+      { numeral: "IX", value: 9 },
+      { numeral: "V", value: 5 },
+      { numeral: "IV", value: 4 },
+      { numeral: "I", value: 1 },
+    ];
+
+    let i = 0;
+    while (i < numeralMap.length) {
+      const numObj = numeralMap[i];
+      if (num - numObj.value >= 0) {
+        romArr.push(numObj.numeral);
+        num -= numObj.value;
+      } else if (num === 0) {
+        break;
+      } else {
+        i++;
+      }
+    }
+
+    return romArr.join("");
   }
 }
 
 function setFocusDirections() {
-  palindromeResult.textContent = "Press enter to evaluate.";
+  rnResult.textContent = "Press enter to evaluate.";
 }
 
 function setBlurDirections() {
-  palindromeResult.textContent = "Press tab.";
+  rnResult.textContent = "Press tab.";
 }
