@@ -17,7 +17,7 @@ function checkRn(event) {
     if (!res) {
       rnResult.textContent = "You should probably type something.";
     } else {
-      rnResult.textContent = "Conversion: " + res;
+      rnResult.textContent = res;
     }
   }, 200);
 
