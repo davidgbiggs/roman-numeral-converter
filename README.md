@@ -4,7 +4,7 @@ This is a part of my FreeCodeCamp [Javascript Algorithms and Data Structures Cer
 
 ## Usage
 
-Download the code and open `index.html` in your browser. Or, just go to [this link](https://stoic-johnson-e5a8e8.netlify.app/).
+Download the code and open `index.html` in your browser. Or, just go to [this link](https://lucid-ptolemy-fded56.netlify.app/).
 
 ## License
 
